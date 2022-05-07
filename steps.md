@@ -9,6 +9,12 @@
     console.log("LISTENING ON PORT 3000!!!);
 })
 //We can already run this using "node index.js" (in git)
+//We are listening but we are not responding so we add use method (every time we get a request we give a response). In use method we pass a callback function. () => {
+    console.log("PRINT THIS WHEN WE GET A REQUEST OF ANY KIND!!!");
+//remember to restart server for every request for now.
+//every time we go to localhost:3000 we''ll print console.log   
+
+}
 
 
 
