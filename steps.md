@@ -19,7 +19,7 @@
 //Now we need to route our requests, to do this we use a method on app called get (Routes HTTP GET requests to the specified path with the specified callback functions.) app.get('/path', (req, res) => {  } )
 //i have to comment out the first send request with hello world, because send can responde just once for every kind of request
 //we can use the path '/' to go to our home page every time.
-
+//at the end we can add a get request with '*' path to responde in case of wrong route paths inserted
 
 
 

@@ -18,10 +18,16 @@ app.get('/', (req, res) => {
 //home page
 
 app.get('/cats', (req, res) => {
-    console.log('CAT REQUEST!');
-    res.send('<h1>THIS IS A CAT REQUEST, YOU ARE UNDER ARREST! </h1>');
+    console.log('CAT GET REQUEST!');
+    res.send('<h1>THIS IS A CAT GET REQUEST, YOU ARE UNDER ARREST!</h1>');
 })
-//cats request
+//cats get request
+
+app.post('/cats', (req, res) => {
+    console.log('CAT POST REQUEST');
+    res.send('<h1>THIS IS A POST CAT REQUEST, MEOW MEOW!</h1>');
+})
+//cats post request
 
 app.get('/dogs', (req, res) => {
     console.log('DOG REQUEST!');
@@ -29,4 +35,8 @@ app.get('/dogs', (req, res) => {
 })
 //dogs request
 
+app.get('*', (req, res) => {
+    console.log('WRONG PATH MATE!');
+    res.send('<h1>WRONG PATH, YOU DONT EVEN KNOW WHAT YOU ARE DOING, DONT YOU?</h1>');
+})
 
