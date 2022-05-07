@@ -13,8 +13,9 @@
     console.log("PRINT THIS WHEN WE GET A REQUEST OF ANY KIND!!!");
 //remember to restart server for every request for now.
 //every time we go to localhost:3000 we''ll print console.log   
-
-}
+//to respond with real content we need to pass two params (req and res), objects provided by express
+//check "response" and "request" in express documentation for more.
+//response object has a method called "send" that we now can use to respond something we pass in, every time we make a request (refreshing page, click enter or use postman/hoppscotch)
 
 
 
