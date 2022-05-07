@@ -16,7 +16,8 @@
   "bugs": {
     "url": "https://github.com/antonrugg/First-App-Express/issues"
   },
-  "homepage": "https://github.com/antonrugg/First-App-Express#readme"
+  "homepage": "https://github.com/antonrugg/First-App-Express#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
-
-
