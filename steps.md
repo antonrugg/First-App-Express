@@ -20,6 +20,11 @@
 //i have to comment out the first send request with hello world, because send can responde just once for every kind of request
 //we can use the path '/' to go to our home page every time.
 //at the end we can add a get request with '*' path to responde in case of wrong route paths inserted
+//we are now requesting for direct paths, but usually we dont do that, so we need to define standard paths
+//req has a property called params that will return an object (try using console.log(req.params)) that we can extract 
+//deconstruct params.get object const { subreddit } = req.params;
+//deconstruct params.get object const { subreddit, postId} = req.params to get a single post for example in a specific subreddit;
+//this is an example app.get path to do this ----> '/r/:subreddit/:postId'  <---so we need to add ":" and deconstruct properly
 
 
 

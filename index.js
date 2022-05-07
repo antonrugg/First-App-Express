@@ -17,6 +17,19 @@ app.get('/', (req, res) => {
 })
 //home page
 
+app.get('/r/:subreddit', (req, res) => {
+    const { subreddit } = req.params;
+    //destructuring req.params
+    console.log(req.params);
+    res.send(`<h1>Browsing the ${subreddit} subreddit</h1>`);
+})
+
+app.get('/r/:subreddit/:postId', (req, res) => {
+    const { subreddit, postId } = req.params;
+    console.log(req.params);
+    res.send(`<h1>Viewing single ${postId} post on the ${subreddit} subreddit</h1>`);
+})
+
 app.get('/cats', (req, res) => {
     console.log('CAT GET REQUEST!');
     res.send('<h1>THIS IS A CAT GET REQUEST, YOU ARE UNDER ARREST!</h1>');
