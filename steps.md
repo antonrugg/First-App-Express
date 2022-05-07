@@ -16,6 +16,11 @@
 //to respond with real content we need to pass two params (req and res), objects provided by express
 //check "response" and "request" in express documentation for more.
 //response object has a method called "send" that we now can use to respond something we pass in, every time we make a request (refreshing page, click enter or use postman/hoppscotch)
+//Now we need to route our requests, to do this we use a method on app called get (Routes HTTP GET requests to the specified path with the specified callback functions.) app.get('/path', (req, res) => {  } )
+//i have to comment out the first send request with hello world, because send can responde just once for every kind of request
+//we can use the path '/' to go to our home page every time.
+
+
 
 
 
