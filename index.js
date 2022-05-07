@@ -48,8 +48,20 @@ app.get('/dogs', (req, res) => {
 })
 //dogs request
 
+app.get('/search', (req, res) => {
+    const { q } = req.query; 
+    if (!q) {
+        res.send('<h1>Nothing found if nothing searched');
+    }
+    res.send(`<h1>Search results for: ${q}</h1>`);
+})
+//deconstruct req.query. like this we handle different queries searches
+//we add if to check if search exist otherwise we return a simple alternative message
+
+
 app.get('*', (req, res) => {
     console.log('WRONG PATH MATE!');
     res.send('<h1>WRONG PATH, YOU DONT EVEN KNOW WHAT YOU ARE DOING, DONT YOU?</h1>');
 })
+//general catch all response when we enter a wrong request path, this needs to be always the last one
 
