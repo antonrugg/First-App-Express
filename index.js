@@ -1,5 +1,10 @@
 const express = require("express");
-const app = express()
+const app = express();
+const redditData = require("./data.json");
+const path = require('path');
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
 
 // app.use((req, res) => {
 //     console.log("PRINT THIS FOR EVERY REQUEST OF EVERY KIND!!!");
@@ -20,8 +25,9 @@ app.get('/', (req, res) => {
 app.get('/r/:subreddit', (req, res) => {
     const { subreddit } = req.params;
     //destructuring req.params
-    console.log(req.params);
-    res.send(`<h1>Browsing the ${subreddit} subreddit</h1>`);
+    const data = redditData[subreddit];
+    console.log(data);
+    res.render('subreddit', { ...data });
 })
 
 app.get('/r/:subreddit/:postId', (req, res) => {

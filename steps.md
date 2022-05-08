@@ -27,6 +27,7 @@
 //this is an example app.get path to do this ----> '/r/:subreddit/:postId'  <---so we need to add ":" and deconstruct properly
 //we can use a property on req called query ---> creates an object which contains a property for each query string the user inputs
 //installed nodemon globally, it will automatically stop and restart our server every time we make changes
+//added data.json file, requiring it in index.js, store in variable and use it 
 
 
 
