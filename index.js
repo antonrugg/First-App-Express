@@ -27,7 +27,12 @@ app.get('/r/:subreddit', (req, res) => {
     //destructuring req.params
     const data = redditData[subreddit];
     console.log(data);
-    res.render('subreddit', { ...data });
+    if (data) {
+        res.render('subreddit', { ...data });
+    } else {
+        res.render('notfound', { subreddit });
+    }
+    //we display data if exist else we display default notfound.ejs
 })
 
 app.get('/r/:subreddit/:postId', (req, res) => {
@@ -68,7 +73,6 @@ app.get('/search', (req, res) => {
 
 
 app.get('*', (req, res) => {
-    console.log('WRONG PATH MATE!');
     res.send('<h1>WRONG PATH, YOU DONT EVEN KNOW WHAT YOU ARE DOING, DONT YOU?</h1>');
 })
 //general catch all response when we enter a wrong request path, this needs to be always the last one
