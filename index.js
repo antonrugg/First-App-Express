@@ -54,6 +54,11 @@ app.get('/cats', (req, res) => {
 })
 //cats get request
 
+app.get('/random', (req, res) => {
+    const num = Math.floor(Math.random() * 100) + 1;
+    res.render('random', { num } )
+})
+
 app.post('/cats', (req, res) => {
     console.log('CAT POST REQUEST');
     res.send('<h1>THIS IS A POST CAT REQUEST, MEOW MEOW!</h1>');
