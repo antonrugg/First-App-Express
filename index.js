@@ -23,7 +23,7 @@ app.listen(3000, () => {
 
 app.get('/', (req, res) => {
     console.log('THIS IS HOME REQUEST');
-    res.send('<h1>HOME</h1>');
+    res.render('home');
 })
 //home page
 
