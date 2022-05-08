@@ -37,8 +37,10 @@ app.get('/r/:subreddit/:postId', (req, res) => {
 })
 
 app.get('/cats', (req, res) => {
-    console.log('CAT GET REQUEST!');
-    res.send('<h1>THIS IS A CAT GET REQUEST, YOU ARE UNDER ARREST!</h1>');
+    const cats = [
+        'Blue', 'Rocket', 'Monty', 'Stephanie', 'Winston'
+    ]
+    res.render('cats', { cats })
 })
 //cats get request
 
