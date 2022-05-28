@@ -12,7 +12,7 @@ main().catch(err => {
 });
 
 async function main() {
-    await mongoose.connect('mongodb://localhost:27017/fleaMarket');
+    await mongoose.connect('mongodb://localhost:27017/generalMarket');
     console.log('mongo connected');
 }
 

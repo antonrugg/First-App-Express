@@ -18,11 +18,12 @@ const productSchema = new Schema({
     },
     category: {
         type: String,
-        enum: ['beverages', 'bread', 'canned goods', 'dairy', 'dry goods',
-               'frozen foods', 'meat', 'produce', 'cleaners', 'paper goods',
-               'personal care', 'other'
+        enum: ['old jewelry', 'vintage', 'clothes', 'porcelain', 'games',
+               'vases', 'candies', 'clocks', 'plants', 'metal products',
+               'sculptures', 'books', 'knives', 'bags', 'others'
               ],
-        required: true
+        required: true,
+        lowercase: true
     },
     quantity: {
         type: Number,
