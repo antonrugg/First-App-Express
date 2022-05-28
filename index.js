@@ -1,7 +1,17 @@
 const express = require("express");
 const app = express();
-const redditData = require("./data.json");
 const path = require('path');
+const mongoose = require('mongoose');
+
+main().catch(err => {
+    console.log(err)
+    console.log('oh no error')
+});
+
+async function main() {
+    await mongoose.connect('mongodb://localhost:27017/movieApp');
+    console.log('mongo connected');
+}
 
 app.use(express.static(path.join(__dirname, 'public')));
 //added use and express.static on public directory to serve static content that needs to be rendered everytime we make a request
