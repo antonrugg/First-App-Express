@@ -36,9 +36,10 @@ app.get('/', (req, res) => {
 })
 //home page
 
-app.get('/products', (req, res) => {
-  
-    res.render('products')
+app.get('/products', async (req, res) => {
+    const products = await Product.find({});
+    console.log(products);
+    res.render('products', { products });
 })
 //products get request
 
