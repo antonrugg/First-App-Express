@@ -4,6 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const Product = require('./models/product');
+const { urlencoded } = require("express");
 //require on product schema
 
 main().catch(err => {
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
+app.use(express.urlencoded({ extended: true }));
 
 
 app.listen(3000, () => {
@@ -43,6 +45,7 @@ app.get('/products/index', async (req, res) => {
     res.render('products/index', { products });
 })
 //products get request
+
 
 app.get('/products/:id', async (req, res) => {
     const { id } = req.params; //This property is an object containing properties mapped to the named route “parameters”.
@@ -68,9 +71,10 @@ app.get('/add-product', (req, res) => {
 })
 //add produt get request
 
-app.post('/add-product', (req, res) => {
-    
-    res.render('add-product');
+app.post('/products', async (req, res) => {
+    const newProduct = new Product(req.body);
+    await newProduct.save();
+    res.redirect(`/products/${newProduct._id}`)
 })
 //add product post request
 
