@@ -3,6 +3,9 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 
+const Product = require('./models/product');
+//require on product schema
+
 main().catch(err => {
     console.log(err)
     console.log('oh no error')
