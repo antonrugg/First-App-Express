@@ -19,6 +19,7 @@ async function main() {
 app.use(express.static(path.join(__dirname, 'public')));
 //added use and express.static on public directory to serve static content that needs to be rendered everytime we make a request
 //static method is a middleware, we can think about it like something always between a request and a response, it will be served anyway
+//tldr: need to write this to use css/styles in public directory
 
 
 app.set('view engine', 'ejs');
@@ -36,16 +37,20 @@ app.get('/', (req, res) => {
 })
 //home page
 
-app.get('/products', async (req, res) => {
+app.get('/products/index', async (req, res) => {
     const products = await Product.find({});
     console.log(products);
-    res.render('products', { products });
+    res.render('products/index', { products });
 })
 //products get request
 
-app.get('/products/:productId', (req, res) => {
-    
-    
+app.get('/products/:id', async (req, res) => {
+    const { id } = req.params; //This property is an object containing properties mapped to the named route “parameters”.
+    //For example, if you have the route / user /: name, then the “name” property is available as req.params.name.T
+    const product = await Product.findById(id);
+    console.log(product);
+    //async await function - store specific product found by id in variable
+    res.render('products/details', { product });
     
 })
 //product get details request
