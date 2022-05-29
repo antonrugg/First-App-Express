@@ -1,0 +1,70 @@
+<%- include('../partials/head.ejs') %>
+
+    <body>
+        <%- include('../partials/navbar.ejs') %>
+            <div class="container">
+                <h1>Edit Product</h1>
+                <form action="/products/<%= product._id %>?_method=PUT" method="post">
+                    <div>
+                        <label for="name">
+                            Edit product name:
+                        </label>
+                        <input type="text" name="name" id="name" placeholder="Product name" value="<%= product.name  %>">
+                    </div>
+                    <div>
+                        <label for="description">
+                            Edit product description:
+                        </label>
+                        <textarea name="description" id="" cols="30" rows="10" placeholder="Brief product description">
+                            <%= product.description %> 
+                    </textarea>
+                    </div>
+                    <div>
+                        <label for="price">
+                            Edit Price:
+                        </label>
+                        <input type="number" name="price" id="price" step=".01" value="<%= product.price %>">
+                    </div>
+                    <div>
+                        <label for="category">Choose a category:</label>
+                        <select name="category" id="category" value="<%= product.category  %>">
+                            <option value="old jewelry">Old Jewelry</option>
+                            <option value="vintage">Vintage</option>
+                            <option value="clothes">Clothes</option>
+                            <option value="porcelain">Porcelain</option>
+                            <option value="games">Games</option>
+                            <option value="vases">Vases</option>
+                            <option value="candies">Candies</option>
+                            <option value="clocks">Clocks</option>
+                            <option value="plants">Plants</option>
+                            <option value="metal products">Metal Products</option>
+                            <option value="sculptures">Sculptures</option>
+                            <option value="books">Books</option>
+                            <option value="knives">Knives</option>
+                            <option value="bags">Bags</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="quantity">Edit Quantity: </label>
+                        <input type="number" name="quantity" id="quantity" value="<%= product.quantity %>">
+                    </div>
+                    <div>
+                        <label for="discount">Set Discount: </label>
+                        <input type="radio" name="discount" id="discount" value="<%= product.discount = true %>">
+                        <label for="discount">No Discount: </label>
+                        <input type="radio" name="discount" id="discount" value="<%= product.discount = false %>">
+                    </div>
+                    <div>
+                        <button class="btn-primary" type="submit">Edit Product</button>
+                    </div>
+
+
+                </form>
+                <a href="/products/<%=product._id%>">Go Back and don't edit</a>
+
+            </div>
+
+    </body>
+
+    </html>

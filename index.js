@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
+
 
 const Product = require('./models/product');
 const { urlencoded } = require("express");
@@ -26,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+//middlewares
 
 
 app.listen(3000, () => {
@@ -77,6 +81,20 @@ app.post('/products', async (req, res) => {
     res.redirect(`/products/${newProduct._id}`)
 })
 //add product post request
+
+app.get('/products/:id/edit', async (req, res) => {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    res.render('products/edit', { product });
+
+})
+//edit product get request
+
+app.put('/products/:id', async (req, res) => {
+    const { id } = req.params;
+    const product = await Product.findByIdAndUpdate(id, req.body, {runValidators: true, new: true});
+    res.redirect(`${product._id}`);
+})
 
 app.get('/contact-us', (req, res) => {
     
