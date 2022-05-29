@@ -27,22 +27,22 @@
                     </div>
                     <div>
                         <label for="category">Choose a category:</label>
-                        <select name="category" id="category" value="<%= product.category  %>">
-                            <option value="old jewelry">Old Jewelry</option>
-                            <option value="vintage">Vintage</option>
-                            <option value="clothes">Clothes</option>
-                            <option value="porcelain">Porcelain</option>
-                            <option value="games">Games</option>
-                            <option value="vases">Vases</option>
-                            <option value="candies">Candies</option>
-                            <option value="clocks">Clocks</option>
-                            <option value="plants">Plants</option>
-                            <option value="metal products">Metal Products</option>
-                            <option value="sculptures">Sculptures</option>
-                            <option value="books">Books</option>
-                            <option value="knives">Knives</option>
-                            <option value="bags">Bags</option>
-                            <option value="others">Others</option>
+                        <select name="category" id="category" value="<%=product.category%>">
+                            <option value="old jewelry" <%=product.category === 'old jewelry' ? 'selected' : ''%> >Old Jewelry</option>
+                            <option value="vintage" <%=product.category === 'vintage' ? 'selected' : ''%>>Vintage</option>
+                            <option value="clothes" <%=product.category === 'clothes' ? 'selected' : ''%>>Clothes</option>
+                            <option value="porcelain" <%=product.category === 'porcelain' ? 'selected' : ''%>>Porcelain</option>
+                            <option value="games" <%=product.category === 'games' ? 'selected' : ''%>>Games</option>
+                            <option value="vases" <%=product.category === 'vases' ? 'selected' : ''%>>Vases</option>
+                            <option value="candies" <%=product.category === 'candies' ? 'selected' : ''%>>Candies</option>
+                            <option value="clocks" <%=product.category === 'clocks' ? 'selected' : ''%>>Clocks</option>
+                            <option value="plants" <%=product.category === 'plants' ? 'selected' : ''%>>Plants</option>
+                            <option value="metal products" <%=product.category === 'metal products' ? 'selected' : ''%>>Metal Products</option>
+                            <option value="sculptures" <%=product.category === 'sculptures' ? 'selected' : ''%>>Sculptures</option>
+                            <option value="books" <%=product.category === 'books' ? 'selected' : ''%>>Books</option>
+                            <option value="knives" <%=product.category === 'knives' ? 'selected' : ''%>>Knives</option>
+                            <option value="bags" <%=product.category === 'bags' ? 'selected' : ''%>>Bags</option>
+                            <option value="others" <%=product.category === 'others' ? 'selected' : ''%>>Others</option>
                         </select>
                     </div>
                     <div>
