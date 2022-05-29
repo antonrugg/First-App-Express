@@ -5,63 +5,116 @@
             <div class="container">
                 <h1>Edit Product</h1>
                 <form action="/products/<%= product._id %>?_method=PUT" method="post">
-                    <div>
-                        <label for="name">
-                            Edit product name:
-                        </label>
-                        <input type="text" name="name" id="name" placeholder="Product name" value="<%= product.name  %>">
-                    </div>
-                    <div>
-                        <label for="description">
-                            Edit product description:
-                        </label>
-                        <textarea name="description" id="" cols="30" rows="10" placeholder="Brief product description">
-                            <%= product.description %> 
-                    </textarea>
-                    </div>
-                    <div>
-                        <label for="price">
-                            Edit Price:
-                        </label>
-                        <input type="number" name="price" id="price" step=".01" value="<%= product.price %>">
-                    </div>
-                    <div>
-                        <label for="category">Choose a category:</label>
-                        <select name="category" id="category" value="<%=product.category%>">
-                            <option value="old jewelry" <%=product.category === 'old jewelry' ? 'selected' : ''%> >Old Jewelry</option>
-                            <option value="vintage" <%=product.category === 'vintage' ? 'selected' : ''%>>Vintage</option>
-                            <option value="clothes" <%=product.category === 'clothes' ? 'selected' : ''%>>Clothes</option>
-                            <option value="porcelain" <%=product.category === 'porcelain' ? 'selected' : ''%>>Porcelain</option>
-                            <option value="games" <%=product.category === 'games' ? 'selected' : ''%>>Games</option>
-                            <option value="vases" <%=product.category === 'vases' ? 'selected' : ''%>>Vases</option>
-                            <option value="candies" <%=product.category === 'candies' ? 'selected' : ''%>>Candies</option>
-                            <option value="clocks" <%=product.category === 'clocks' ? 'selected' : ''%>>Clocks</option>
-                            <option value="plants" <%=product.category === 'plants' ? 'selected' : ''%>>Plants</option>
-                            <option value="metal products" <%=product.category === 'metal products' ? 'selected' : ''%>>Metal Products</option>
-                            <option value="sculptures" <%=product.category === 'sculptures' ? 'selected' : ''%>>Sculptures</option>
-                            <option value="books" <%=product.category === 'books' ? 'selected' : ''%>>Books</option>
-                            <option value="knives" <%=product.category === 'knives' ? 'selected' : ''%>>Knives</option>
-                            <option value="bags" <%=product.category === 'bags' ? 'selected' : ''%>>Bags</option>
-                            <option value="others" <%=product.category === 'others' ? 'selected' : ''%>>Others</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="quantity">Edit Quantity: </label>
-                        <input type="number" name="quantity" id="quantity" value="<%= product.quantity %>">
-                    </div>
-                    <div>
-                        <label for="discount">Set Discount: </label>
-                        <input type="radio" name="discount" id="discount" value="<%= product.discount = true %>">
-                        <label for="discount">No Discount: </label>
-                        <input type="radio" name="discount" id="discount" value="<%= product.discount = false %>">
-                    </div>
-                    <div>
-                        <button class="btn-primary" type="submit">Edit Product</button>
+                    <!-- name input -->
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="mt-3 mb-5">
+                                <label for="name" class="form-label">
+                                    Name
+                                </label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Product name" value="<%= product.name  %>">
+                                <div class="form-text">Edit your product name</div>
+                            </div>
+
+                    <!-- description input -->
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="my-3 form-floating">
+                                <textarea name="description" class="form-control" id="description" placeholder="Brief product description"
+                                        style="height: 150px;" maxlength="400" spellcheck="false" wrap="hard" cols="10" rows="30">
+                                    <%= product.description %> 
+                                </textarea>
+                                <label for="description">
+                                    Description
+                                </label>
+                                <div class="form-text">Edit your product description</div>
+                            </div>
+
+                    <!-- price input -->
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="mt-3 mb-5">
+                                <label for="price" class="form-label">
+                                    Price
+                                </label>
+                                    
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    
+                                    <input type="number" name="price" id="price"
+                                        class="form-control" aria-label="Product price amount"
+                                        step=".01" value="<%= product.price %>">
+                                </div>
+                                <div class="form-text">Edit your product price</div>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- select category input -->
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-floating my-3">
+                                <select name="category" class="form-select" id="category" value="<%=product.category%>">
+                                    <option value="old jewelry" <%=product.category === 'old jewelry' ? 'selected' : ''%> >Old Jewelry</option>
+                                    <option value="vintage" <%=product.category === 'vintage' ? 'selected' : ''%>>Vintage</option>
+                                    <option value="clothes" <%=product.category === 'clothes' ? 'selected' : ''%>>Clothes</option>
+                                    <option value="porcelain" <%=product.category === 'porcelain' ? 'selected' : ''%>>Porcelain</option>
+                                    <option value="games" <%=product.category === 'games' ? 'selected' : ''%>>Games</option>
+                                    <option value="vases" <%=product.category === 'vases' ? 'selected' : ''%>>Vases</option>
+                                    <option value="candies" <%=product.category === 'candies' ? 'selected' : ''%>>Candies</option>
+                                    <option value="clocks" <%=product.category === 'clocks' ? 'selected' : ''%>>Clocks</option>
+                                    <option value="plants" <%=product.category === 'plants' ? 'selected' : ''%>>Plants</option>
+                                    <option value="metal products" <%=product.category === 'metal products' ? 'selected' : ''%>>Metal Products</option>
+                                    <option value="sculptures" <%=product.category === 'sculptures' ? 'selected' : ''%>>Sculptures</option>
+                                    <option value="books" <%=product.category === 'books' ? 'selected' : ''%>>Books</option>
+                                    <option value="knives" <%=product.category === 'knives' ? 'selected' : ''%>>Knives</option>
+                                    <option value="bags" <%=product.category === 'bags' ? 'selected' : ''%>>Bags</option>
+                                    <option value="others" <%=product.category === 'others' ? 'selected' : ''%>>Others</option>
+                                </select>
+                                <label class="mb-3" for="category">Choose a category</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- quantity input -->
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="my-5">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="number" class="form-control"
+                                       name="quantity" id="quantity" value="<%= product.quantity %>">
+                                <div class="form-text">Edit your product quantity</div>
+                            </div>
+                            
+                        </div>    
+                    </div>    
+
+                            <div>
+                                <div class="btn-group" role="group" aria-label="radio buttons group for discount">
+                                    <input type="radio" class="btn-check" name="discount" id="discount" autocomplete="off"
+                                        value="<%= product.discount = true %>">
+                                    <label for="discount" class="btn btn-outline-primary">Set Discount</label>
+
+
+                                    <input type="radio" class="btn-check" name="discount" id="discount" autocomplete="off" checked
+                                        value="<%= product.discount = false %>">
+                                    <label for="discount" class="btn btn-outline-primary">No Discount</label>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-success" type="submit">Edit Product</button>
+                            </div>
+                        </div>
+                    </div>
 
                 </form>
-                <a href="/products/<%=product._id%>">Go Back and don't edit</a>
+                   
+                    
+
+
+
+                
+                <a class="btn btn-secondary" href="/products/<%=product._id%>">Go Back to your product</a>
 
             </div>
 
