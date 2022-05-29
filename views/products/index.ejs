@@ -9,7 +9,10 @@
             <p>Description: <%= product.description %> </p>
             <p>$<%= product.price %> </p>    
             <a href="/products/<%=product._id %>">More info</a> 
-            <a href="/products/<%=product._id %>/edit">Edit</a>               
+            <a href="/products/<%=product._id %>/edit">Edit product</a>
+            <form action="/products/<%= product._id%>?_method=DELETE" method="post">
+                <button class="btn-danger" type="submit">Delete product</button>
+            </form>           
         </div>
         <% } %>
     </div>

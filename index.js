@@ -95,6 +95,14 @@ app.put('/products/:id', async (req, res) => {
     const product = await Product.findByIdAndUpdate(id, req.body, {runValidators: true, new: true});
     res.redirect(`${product._id}`);
 })
+//edit product put request
+
+app.delete('/products/:id', async (req, res) => {
+    const { id } = req.params;
+    await Product.findByIdAndDelete(id);
+    res.redirect('/products/index');
+})
+//delete product delete request
 
 app.get('/contact-us', (req, res) => {
     
