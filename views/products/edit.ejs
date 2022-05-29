@@ -3,7 +3,13 @@
     <body>
         <%- include('../partials/navbar.ejs') %>
             <div class="container">
-                <h1>Edit Product</h1>
+                <div class="row">
+                    <div class="col-md">
+                        <h1>Edit Product</h1>
+                    </div>
+                </div>
+                
+
                 <form action="/products/<%= product._id %>?_method=PUT" method="post">
                     <!-- name input -->
                     <div class="row">
@@ -13,8 +19,10 @@
                                     Name
                                 </label>
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Product name" value="<%= product.name  %>">
-                                <div class="form-text">Edit your product name</div>
+                                <div class="form-text">Edit your product name</div>        
                             </div>
+                        </div>
+                    </div>
 
                     <!-- description input -->
                     <div class="row">
@@ -29,6 +37,8 @@
                                 </label>
                                 <div class="form-text">Edit your product description</div>
                             </div>
+                        </div>
+                    </div>
 
                     <!-- price input -->
                     <div class="row">
@@ -79,29 +89,34 @@
                     <!-- quantity input -->
                     <div class="row">
                         <div class="col-md">
-                            <div class="my-5">
+                            <div class="mt-5 mb-3">
                                 <label for="quantity" class="form-label">Quantity</label>
                                 <input type="number" class="form-control"
                                        name="quantity" id="quantity" value="<%= product.quantity %>">
                                 <div class="form-text">Edit your product quantity</div>
-                            </div>
-                            
+                            </div> 
                         </div>    
-                    </div>    
+                    </div>  
 
-                            <div>
-                                <div class="btn-group" role="group" aria-label="radio buttons group for discount">
-                                    <input type="radio" class="btn-check" name="discount" id="discount" autocomplete="off"
+                    <!-- discount radio input -->
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="my-3 btn-group" role="group"">
+                                <input type="radio" class="btn-check form-control" name="discount" id="discount" autocomplete="off"
                                         value="<%= product.discount = true %>">
-                                    <label for="discount" class="btn btn-outline-primary">Set Discount</label>
+                                <label for="discount" class="btn btn-outline-primary">Set Discount</label>
 
-
-                                    <input type="radio" class="btn-check" name="discount" id="discount" autocomplete="off" checked
-                                        value="<%= product.discount = false %>">
-                                    <label for="discount" class="btn btn-outline-primary">No Discount</label>
-                                </div>
+                                <input type="radio" class="btn-check form-control" name="discount" id="no-discount" autocomplete="off" checked
+                                    value="<%= product.discount = false %>">
+                                <label for="no-discount" class="btn btn-outline-primary">No Discount</label>
                             </div>
-                            <div>
+                        </div>        
+                    </div>  
+
+                    <!-- edit product button submit -->
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="mt-1 mb-3">
                                 <button class="btn btn-success" type="submit">Edit Product</button>
                             </div>
                         </div>
@@ -113,9 +128,11 @@
 
 
 
-                
-                <a class="btn btn-secondary" href="/products/<%=product._id%>">Go Back to your product</a>
-
+                <div class="row">
+                    <div class="col-md">
+                        <a class="btn btn-secondary" href="/products/<%=product._id%>">Go Back</a>
+                    </div>
+                </div>
             </div>
 
     </body>
